@@ -52,7 +52,6 @@ class _MyHomePageState extends State<MyHomePage> {
         stream: bloc.subject.stream,
         builder: (context, AsyncSnapshot<List<User>> snapshot) {
           if (snapshot.hasData) {
-            print('snapshot: ${snapshot.data.length}');
             if (snapshot.data != null && snapshot.data.length > 0) {
               return _buildUserWidget(snapshot.data);
             } else
@@ -68,9 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _buildUserWidget(List<User> data) {
-    for (int i = 0; i < data.length; i++) {
-      print('===== ${data[i].results[0].name.first}+ ${data[i].results[0].userId}');
-    }
+
     return Center(
         child: Container(
             height: MediaQuery.of(context).size.height * 0.6,

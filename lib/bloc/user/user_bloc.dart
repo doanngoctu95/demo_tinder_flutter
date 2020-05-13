@@ -9,7 +9,6 @@ class UserBloc {
 
   getUser(BuildContext context) async {
     List<User> response = await _repository.generateListUsers(context);
-    print('length: ${response.length}');
     _subject.sink.add(response);
   }
 
